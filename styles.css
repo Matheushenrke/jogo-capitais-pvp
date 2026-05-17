@@ -431,6 +431,63 @@ select:focus {
   margin-top: 10px;
 }
 
+.app-footer {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0 18px;
+}
+
+.app-footer a {
+  position: relative;
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.58);
+  color: #e2e8f0;
+  padding: 0 18px;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  backdrop-filter: blur(12px);
+}
+
+.app-footer a::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -70%;
+  width: 55%;
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.72),
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+  transform: skewX(-18deg);
+  animation: footerShine 2.8s ease-in-out infinite;
+}
+
+.app-footer a:hover {
+  border-color: rgba(255, 255, 255, 0.46);
+  color: #ffffff;
+}
+
+@keyframes footerShine {
+  0% {
+    left: -70%;
+  }
+
+  48%,
+  100% {
+    left: 125%;
+  }
+}
+
 .hidden {
   display: none;
 }
