@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duelo de Capitais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="scoreboard" aria-label="Placar">
+        <div class="player-panel active" id="playerOnePanel">
+          <span class="player-label">Jogador 1</span>
+          <strong id="playerOneNameDisplay">Jogador 1</strong>
+          <span class="score" id="playerOneScore">0</span>
+        </div>
+
+        <div class="match-panel">
+          <span id="roundTracker">Rodada 1 de 10</span>
+          <strong>Duelo de Capitais</strong>
+          <button class="icon-button" id="resetButton" type="button" aria-label="Reiniciar partida">
+            ↻
+          </button>
+        </div>
+
+        <div class="player-panel" id="playerTwoPanel">
+          <span class="player-label">Jogador 2</span>
+          <strong id="playerTwoNameDisplay">Jogador 2</strong>
+          <span class="score" id="playerTwoScore">0</span>
+        </div>
+      </section>
+
+      <section class="setup-screen" id="setupScreen" aria-labelledby="setupTitle">
+        <div class="setup-copy">
+          <p>Jogo local 1x1</p>
+          <h1 id="setupTitle">Quem sabe mais capitais?</h1>
+          <span>Configure a partida e passe o teclado ou celular para o jogador da vez.</span>
+        </div>
+
+        <form class="setup-form" id="setupForm">
+          <label>
+            Nome do jogador 1
+            <input id="playerOneName" type="text" maxlength="18" placeholder="Jogador 1" />
+          </label>
+          <label>
+            Nome do jogador 2
+            <input id="playerTwoName" type="text" maxlength="18" placeholder="Jogador 2" />
+          </label>
+          <label>
+            Rodadas por jogador
+            <select id="roundsSelect">
+              <option value="5">5 rodadas</option>
+              <option value="8">8 rodadas</option>
+              <option value="10" selected>10 rodadas</option>
+              <option value="15">15 rodadas</option>
+            </select>
+          </label>
+          <label>
+            Tipo de desafio
+            <select id="categorySelect">
+              <option value="countries" selected>Capitais de países</option>
+              <option value="states">Capitais dos estados brasileiros</option>
+              <option value="mixed">Misturado</option>
+            </select>
+          </label>
+          <button class="primary-button" type="submit">Começar duelo</button>
+        </form>
+      </section>
+
+      <section class="game-screen hidden" id="gameScreen" aria-live="polite">
+        <div class="turn-strip">
+          <span>Vez de</span>
+          <strong id="currentPlayerName">Jogador 1</strong>
+        </div>
+
+        <article class="question-card">
+          <span class="question-kicker">Qual é a capital de</span>
+          <h2 id="countryQuestion">Brasil?</h2>
+          <div class="answers-grid" id="answersGrid"></div>
+        </article>
+
+        <div class="feedback-panel" id="feedbackPanel">
+          <strong id="feedbackTitle">Escolha uma resposta</strong>
+          <span id="feedbackText">Cada pergunta tem uma alternativa correta.</span>
+          <button class="primary-button hidden" id="nextButton" type="button">Próxima pergunta</button>
+        </div>
+
+        <aside class="history-panel">
+          <h3>Histórico</h3>
+          <ol id="historyList"></ol>
+        </aside>
+      </section>
+
+      <section class="result-screen hidden" id="resultScreen">
+        <p>Partida encerrada</p>
+        <h2 id="winnerTitle">Empate</h2>
+        <span id="finalScoreText">0 x 0</span>
+        <div class="result-actions">
+          <button class="primary-button" id="playAgainButton" type="button">Jogar novamente</button>
+          <button class="secondary-button" id="newPlayersButton" type="button">Trocar jogadores</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
