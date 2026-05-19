@@ -19,6 +19,7 @@
           <span class="player-label">Jogador 1</span>
           <strong id="playerOneNameDisplay">Jogador 1</strong>
           <span class="score" id="playerOneScore">0</span>
+          <small id="playerOneMeta">Combo 0 · 0%</small>
         </div>
 
         <div class="match-panel">
@@ -33,6 +34,7 @@
           <span class="player-label">Jogador 2</span>
           <strong id="playerTwoNameDisplay">Jogador 2</strong>
           <span class="score" id="playerTwoScore">0</span>
+          <small id="playerTwoMeta">Combo 0 · 0%</small>
         </div>
       </section>
 
@@ -77,7 +79,34 @@
         <div class="turn-strip">
           <span>Vez de</span>
           <strong id="currentPlayerName">Jogador 1</strong>
+          <em id="pressureMessage">Respire. Mire. Responda.</em>
         </div>
+
+        <section class="combat-hud" aria-label="Informações da rodada">
+          <div class="timer-card" id="timerCard">
+            <span>Tempo</span>
+            <strong id="timerText">00.0s</strong>
+            <div class="timer-track" aria-hidden="true">
+              <i id="timerFill"></i>
+            </div>
+          </div>
+          <div class="hud-badge" id="difficultyBadge">
+            <span>Dificuldade</span>
+            <strong>Fácil</strong>
+          </div>
+          <div class="hud-badge" id="roundTypeBadge">
+            <span>Rodada</span>
+            <strong>Normal</strong>
+          </div>
+          <div class="hud-badge combo-badge" id="comboBadge">
+            <span>Combo</span>
+            <strong>x1</strong>
+          </div>
+          <div class="hud-badge">
+            <span>Valendo até</span>
+            <strong id="pointsPreview">100 pts</strong>
+          </div>
+        </section>
 
         <article class="question-card">
           <span class="question-kicker">Qual é a capital de</span>
@@ -88,6 +117,7 @@
         <div class="feedback-panel" id="feedbackPanel">
           <strong id="feedbackTitle">Escolha uma resposta</strong>
           <span id="feedbackText">Cada pergunta tem uma alternativa correta.</span>
+          <small id="scoreBreakdown"></small>
           <button class="primary-button hidden" id="nextButton" type="button">Próxima pergunta</button>
         </div>
 
@@ -101,6 +131,7 @@
         <p>Partida encerrada</p>
         <h2 id="winnerTitle">Empate</h2>
         <span id="finalScoreText">0 x 0</span>
+        <div class="final-stats" id="finalStats"></div>
         <div class="result-actions">
           <button class="primary-button" id="playAgainButton" type="button">Jogar novamente</button>
           <button class="secondary-button" id="newPlayersButton" type="button">Trocar jogadores</button>
@@ -114,6 +145,7 @@
       </footer>
     </main>
 
+    <script src="game-core.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
